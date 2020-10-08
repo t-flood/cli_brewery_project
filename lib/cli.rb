@@ -43,13 +43,20 @@ class CLI
     puts ""
     puts "#{brewery.name}"
     puts "#{brewery.type} brewery"
+    puts "#{brewery.street}"
+    puts "#{brewery.city.capitalize}"
+    puts "#{brewery.state}"
+    puts "#{brewery.postal_code}"
+    puts "#{brewery.country}"
+    puts "#{brewery.phone}"
+    puts "#{brewery.website_url}"
     puts ""
   end
 
   def prompt
     puts "Type in a number listed to see details"
     puts "or type 'return' to input another city"
-    puts "or type 'list' to 'return' to the brewery list"
+    puts "or type 'list' to view the brewery list"
     puts "or type 'done' when you're done"
     puts ""
   end

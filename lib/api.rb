@@ -11,7 +11,6 @@ class API
       new_brewery = Brewery.new( name: b["name"], id: b["id"], city: city)
       new_city.breweries << new_brewery
     end
-    binding.pry
   end
 
   def self.get_brewery_details(brewery)
@@ -20,10 +19,12 @@ class API
     response = Net::HTTP.get(uri)
     br = JSON.parse(response)
     brewery.type = br["brewery_type"]
-    # brewery.address = br["street"]
-    # brewery.city = br["city"]
-    # brewery.state = br["state"]
-    binding.pry
+    brewery.street = br["street"]
+    brewery.state = br["state"]
+    brewery.postal_code = br["postal_code"]
+    brewery.country = br["country"]
+    brewery.phone = br["phone"]
+    brewery.website_url = br["website_url"]
   end
 
 

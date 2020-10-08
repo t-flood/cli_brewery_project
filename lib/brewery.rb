@@ -2,14 +2,13 @@
 #turn responses into objects
 #save all cities created
 class Brewery
-  attr_accessor :name, :id, :city, :type, :address, :phone, :website
+  attr_accessor :name, :id, :city, :type, :street, :state, :postal_code, :country, :phone, :website_url
   @@all = []
 
     def initialize(name:, id:, city:)
       @name = name
       @id = id
       @city = city
-      @address = []
       @@all << self
     end
 
@@ -17,9 +16,6 @@ class Brewery
       @@all
     end
 
-    # def self.find_by_city(city)
-    #   @@all.select { |b| b.city == city }
-    # end
     def self.find(brewery)
       @@all.select{ |b| b == b }
     end
