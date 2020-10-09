@@ -4,7 +4,9 @@
 class CLI
 
   def start
+    puts ""
     puts "Welcome to Brewery Finder"
+    puts ""
     prompt_city
     prompt
     inp = gets.strip.downcase
@@ -13,16 +15,14 @@ class CLI
         print_breweries(City.find_by_city(@city).breweries)
       elsif inp.to_i > 0 && inp.to_i <= City.find_by_city(@city).breweries.length
         brewery = City.find_by_city(@city).breweries[inp.to_i - 1]
-        if !brewery.type
           API.get_brewery_details(brewery)
           print_brewery(brewery)
-        else
-          print_drink(Brewery.find(brewery[0]))
-        end
       elsif inp == 'return'
         prompt_city
       else
+        puts ""
         puts "Try again"
+        puts ""
       end
       prompt
       inp = gets.strip.downcase
@@ -32,6 +32,7 @@ class CLI
   end
 
   def print_breweries(br)
+    puts ""
     puts "Here are the breweries in #{@city.capitalize}:"
     br.each.with_index(1) do | b, i |
     puts "#{i}. #{b.name}"
@@ -62,11 +63,11 @@ class CLI
   end
 
   def prompt_city
+    puts ""
     puts "Search for a brewery by entering a city"
     puts ""
     @city = gets.strip.downcase
     API.fetch_brewery(@city)
-    puts ""
     breweries = City.find_by_city(@city).breweries
     print_breweries(breweries)
   end

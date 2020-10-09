@@ -1,6 +1,6 @@
-#keep track of cities
+#keep track of all breweries
 #turn responses into objects
-#save all cities created
+#save all breweries created
 class Brewery
   attr_accessor :name, :id, :city, :type, :street, :state, :postal_code, :country, :phone, :website_url
   @@all = []
@@ -15,9 +15,4 @@ class Brewery
     def self.all
       @@all
     end
-
-    def self.find(brewery)
-      @@all.select{ |b| b == b }
-    end
-
 end

@@ -26,6 +26,4 @@ class API
     brewery.phone = br["phone"]
     brewery.website_url = br["website_url"]
   end
-
-
 end
