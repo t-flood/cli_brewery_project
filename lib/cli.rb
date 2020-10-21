@@ -31,10 +31,10 @@ class CLI
     puts "See ya!"
   end
 
-  def print_breweries(br)
+  def print_breweries(breweries)
     puts ""
     puts "Here are the breweries in #{@city.capitalize}:"
-    br.each.with_index(1) do | b, i |
+    breweries.each.with_index(1) do | b, i |
     puts "#{i}. #{b.name}"
     end
     puts ""
